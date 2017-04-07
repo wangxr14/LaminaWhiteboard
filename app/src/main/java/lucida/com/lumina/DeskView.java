@@ -114,7 +114,7 @@ public class DeskView extends View{
 
     protected void resetDrawInvalidate(Canvas canvas , PointData obj)
     {
-        float x , y;
+        double x , y;
         x=obj.rightx-obj.leftx;
         y=obj.righty-obj.lefty;
 
@@ -157,7 +157,7 @@ public class DeskView extends View{
         p.setPathEffect(effects);
         p.setColor(Color.GRAY);//设置颜色
         p.setStyle(Paint.Style.STROKE);//设置填满
-        canvas.drawRect(obj.leftx, obj.lefty, obj.rightx, obj.righty, p);
+        canvas.drawRect((float)obj.leftx, (float)obj.lefty, (float)obj.rightx, (float)obj.righty, p);
     }
 
     protected void selectDelete(Canvas canvas , PointData obj)
@@ -168,7 +168,7 @@ public class DeskView extends View{
             PointData objs = list.get(i);
 
             //虚线矩形必须进行判断
-            float left=obj.leftx,top=obj.lefty,right=obj.rightx,bottom=obj.righty;
+            double left=obj.leftx,top=obj.lefty,right=obj.rightx,bottom=obj.righty;
             if(obj.rightx<obj.leftx)
             {
                 left=obj.rightx;
@@ -208,11 +208,11 @@ public class DeskView extends View{
                     }
 
                     Path m_path = new Path();
-                    m_path.moveTo(left, top);
-                    m_path.lineTo(left+1, top);
-                    m_path.lineTo(right+1, bottom);
-                    m_path.lineTo(right, bottom);
-                    m_path.lineTo(left, top);
+                    m_path.moveTo((float)left, (float)top);
+                    m_path.lineTo((float)left+1,(float) top);
+                    m_path.lineTo((float)right+1, (float)bottom);
+                    m_path.lineTo((float)right,(float) bottom);
+                    m_path.lineTo((float)left, (float)top);
                     compareRegion.setPath(m_path, clip1);
                     if(currentRegion.op(compareRegion, Region.Op.INTERSECT))
                     {
@@ -240,10 +240,10 @@ public class DeskView extends View{
                     for(int peni=0; peni<objs.point.size(); peni++)
                     {
                         Point pointvalue = objs.point.get(peni);
-                        float x = pointvalue.x;
-                        float y = pointvalue.y;
-                        float startx=pointvalue.startx;
-                        float starty=pointvalue.starty;
+                        double x = pointvalue.x;
+                        double y = pointvalue.y;
+                        double startx=pointvalue.startx;
+                        double starty=pointvalue.starty;
 
                         if (0 == peni)
                         {
@@ -291,11 +291,11 @@ public class DeskView extends View{
                         }
 
                         Path rectRg = new Path();
-                        rectRg.moveTo(left, top);
-                        rectRg.lineTo(left+1, top);
-                        rectRg.lineTo(right+1, bottom);
-                        rectRg.lineTo(right, bottom);
-                        rectRg.lineTo(left, top);
+                        rectRg.moveTo((float)left,(float) top);
+                        rectRg.lineTo((float)left+1, (float)top);
+                        rectRg.lineTo((float)right+1, (float)bottom);
+                        rectRg.lineTo((float)right, (float)bottom);
+                        rectRg.lineTo((float)left,(float) top);
 
                         newRegion.setPath(rectRg, clip);
                         region.op(newRegion, Region.Op.UNION);
@@ -438,7 +438,7 @@ public class DeskView extends View{
             PointData objs = list.get(i);
 
             //虚线矩形必须进行判断
-            float left=obj.leftx,top=obj.lefty,right=obj.rightx,bottom=obj.righty;
+            double left=obj.leftx,top=obj.lefty,right=obj.rightx,bottom=obj.righty;
             if(obj.rightx<obj.leftx)
             {
                 left=obj.rightx;
@@ -479,11 +479,11 @@ public class DeskView extends View{
                     }
 
                     Path m_path = new Path();
-                    m_path.moveTo(left, top);
-                    m_path.lineTo(left+1, top);
-                    m_path.lineTo(right+1, bottom);
-                    m_path.lineTo(right, bottom);
-                    m_path.lineTo(left, top);
+                    m_path.moveTo((float)left, (float)top);
+                    m_path.lineTo((float)left+1, (float)top);
+                    m_path.lineTo((float)right+1, (float)bottom);
+                    m_path.lineTo((float)right, (float)bottom);
+                    m_path.lineTo((float)left,(float) top);
                     compareRegion.setPath(m_path, clip1);
 
                     if(currentRegion.op(compareRegion, Region.Op.INTERSECT))
@@ -517,10 +517,10 @@ public class DeskView extends View{
                     for(int peni=0; peni<objs.point.size(); peni++)
                     {
                         Point pointvalue = objs.point.get(peni);
-                        float x = pointvalue.x;
-                        float y = pointvalue.y;
-                        float startx=pointvalue.startx;
-                        float starty=pointvalue.starty;
+                        double x = pointvalue.x;
+                        double y = pointvalue.y;
+                        double startx=pointvalue.startx;
+                        double starty=pointvalue.starty;
 
                         if (0 == peni)
                         {
@@ -568,11 +568,11 @@ public class DeskView extends View{
                         }
 
                         Path rectRg = new Path();
-                        rectRg.moveTo(left, top);
-                        rectRg.lineTo(left+1, top);
-                        rectRg.lineTo(right+1, bottom);
-                        rectRg.lineTo(right, bottom);
-                        rectRg.lineTo(left, top);
+                        rectRg.moveTo((float)left, (float)top);
+                        rectRg.lineTo((float)left+1, (float)top);
+                        rectRg.lineTo((float)right+1,(float) bottom);
+                        rectRg.lineTo((float)right, (float)bottom);
+                        rectRg.lineTo((float)left, (float)top);
 
                         newRegion.setPath(rectRg, clip);
                         region.op(newRegion, Region.Op.UNION);
@@ -738,7 +738,7 @@ public class DeskView extends View{
         for(int i=0; i<dashList.size(); i++)
         {
             DashPoint obj = dashList.get(i);
-            canvas.drawRect(obj.left, obj.top, obj.right, obj.bottom, p);
+            canvas.drawRect((float)obj.left, (float)obj.top,(float) obj.right, (float)obj.bottom, p);
         }
     }
 
@@ -752,16 +752,16 @@ public class DeskView extends View{
         mPaint.setStrokeCap(Paint.Cap.ROUND);//设置画笔圆滑状
         mPaint.setStrokeWidth(2);//设置线的宽度
 
-        mPath.moveTo(obj.leftx, obj.lefty);
+        mPath.moveTo((float)obj.leftx,(float) obj.lefty);
 
         for(int i=0; i<obj.point.size(); i++)
         {
             Point pointvalue = obj.point.get(i);
-            float x = pointvalue.x;
-            float y = pointvalue.y;
-            float startx=pointvalue.startx;
-            float starty=pointvalue.starty;
-            mPath.quadTo(startx, starty , x, y);
+            double x = pointvalue.x;
+            double y = pointvalue.y;
+            double startx=pointvalue.startx;
+            double starty=pointvalue.starty;
+            mPath.quadTo((float)startx, (float)starty ,(float) x,(float) y);
         }
 
         canvas.drawPath(mPath, mPaint);
@@ -770,7 +770,7 @@ public class DeskView extends View{
     protected void drawLine(Canvas canvas , PointData obj){
         Paint p = new Paint();
         p.setColor(Color.BLACK);
-        canvas.drawLine(obj.leftx, obj.lefty, obj.rightx, obj.righty, p);
+        canvas.drawLine((float)obj.leftx,(float) obj.lefty, (float)obj.rightx, (float)obj.righty, p);
     }
 
     protected void drawFillRect(Canvas canvas , PointData obj){
@@ -778,11 +778,11 @@ public class DeskView extends View{
         if(obj.drawType==3){//空心圆
             p.setColor(Color.GRAY);//设置颜色
             p.setStyle(Paint.Style.STROKE);//设置填满
-            canvas.drawRect(obj.leftx, obj.lefty, obj.rightx, obj.righty, p);
+            canvas.drawRect((float)obj.leftx, (float)obj.lefty, (float)obj.rightx, (float)obj.righty, p);
         }else if(obj.drawType==4){//实心圆
             p.setColor(Color.GRAY);//设置颜色
             p.setStyle(Paint.Style.FILL);//设置填满
-            canvas.drawRect(obj.leftx, obj.lefty, obj.rightx, obj.righty, p);
+            canvas.drawRect((float)obj.leftx, (float)obj.lefty, (float)obj.rightx, (float)obj.righty, p);
         }
     }
 
@@ -791,11 +791,11 @@ public class DeskView extends View{
         if(obj.drawType==5){//空心圆
             p.setColor(Color.GRAY);//设置颜色
             p.setStyle(Paint.Style.STROKE);//设置空心
-            canvas.drawOval(new RectF(obj.leftx, obj.lefty, obj.rightx, obj.righty), p);
+            canvas.drawOval(new RectF((float)obj.leftx,(float) obj.lefty, (float)obj.rightx, (float)obj.righty), p);
         }else if(obj.drawType==6){//实心圆
             p.setColor(Color.GRAY);//设置颜色
             p.setStyle(Paint.Style.FILL);//设置填满
-            canvas.drawOval(new RectF(obj.leftx, obj.lefty, obj.rightx, obj.righty), p);
+            canvas.drawOval(new RectF((float)obj.leftx,(float) obj.lefty, (float)obj.rightx,(float) obj.righty), p);
         }
     }
 

@@ -17,11 +17,20 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Connect With Others"
-        android:id="@+id/ConnectButton"
+        android:text="Share Screen"
+        android:id="@+id/UserMode1Button"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Draw On Screen"
+        android:id="@+id/UserMode2Button"
+        android:layout_below="@+id/UserMode1Button"
+        android:layout_alignStart="@+id/UserMode1Button"
+        android:layout_marginTop="48dp"
+        android:layout_alignEnd="@+id/UserMode1Button" />
 
 
 </RelativeLayout>

@@ -5,14 +5,14 @@ package lucida.com.lumina;
  */
 import java.util.ArrayList;
 public class PointData{
-    public float leftx;
-    public float lefty;
-    public float rightx;
-    public float righty;
+    public double leftx;
+    public double lefty;
+    public double rightx;
+    public double righty;
     public int drawType;
     public ArrayList<Point> point = new ArrayList<Point>();
 
-    public PointData(float leftx , float lefty, float rightx, float righty, int drawType){
+    public PointData(double leftx , double lefty, double rightx, double righty, int drawType){
         this.leftx=leftx;
         this.lefty=lefty;
         this.rightx=rightx;

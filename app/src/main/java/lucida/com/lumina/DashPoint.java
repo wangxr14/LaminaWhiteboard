@@ -5,7 +5,7 @@ package lucida.com.lumina;
  */
 public class DashPoint
 {
-    public float left,top,right,bottom;
+    public double left,top,right,bottom;
     public int point_index;
 
     public DashPoint()
